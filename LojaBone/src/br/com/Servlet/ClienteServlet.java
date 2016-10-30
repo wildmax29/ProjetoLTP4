@@ -1,6 +1,7 @@
 package br.com.Servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +29,15 @@ public class ClienteServlet extends HttpServlet {
 			clientebo.cadastrar(cliente);
 		
 			
+		}else if(acao.equals("Listar")){
+			List<Cliente> clientes;
+			clientes = clientebo.ListarTodos();
+			req.setAttribute("clientes", clientes);
+			req.getRequestDispatcher("JSP/Cliente/Listar.jsp").forward(req, resp);
+			
+		}else{
+			System.out.println("Não encontrada nenhuma ação");
 		}
-		
 	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
