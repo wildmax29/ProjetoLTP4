@@ -7,9 +7,12 @@
 <title>Menu</title>
 </head>
 <body>
-	<a href="../../../JSP/Cadastro.jsp"> CadastroCliente</a><br/>
+<center>
+	<a href="../../LojaBone/JSP/Cliente/Cadastro.jsp"> CadastroCliente</a><br/>
 	<a href="/LojaBone/cliente?acao=Listar">Listar clientes</a><br/>
+	<a href="../../LojaBone/JSP/Bone/CadastroBone.jsp"> CadastroBone</a><br/>
+	<a href="/LojaBone/bone?acao=Listar">Listar bones</a><br/>
 	
-
+</center>
 </body>
 </html>

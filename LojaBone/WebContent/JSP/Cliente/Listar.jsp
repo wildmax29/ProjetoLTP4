@@ -35,6 +35,7 @@
       %>
       
 </table>
+<input type="button" onclick="location='/LojaBone/JSP/Cliente/Cadastro.jsp'" value = "Cadastro">
 
 </body>
 </html>

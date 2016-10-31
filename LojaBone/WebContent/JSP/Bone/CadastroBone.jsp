@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CADASTRO CLIENTE</title>
+<title>CADASTRO BONE</title>
 </head>
 <body>
-<form action="/LojaBone/cliente" method = "post">
+<form action="/LojaBone/bone" method = "post">
 <input type = "hidden" name = "acao" value = "cadastrar" />
-<label>Nome:</label> <input type="text" name = "nome"/><br/>
-<label>Idade:</label> <input type="number" name = "idade"/><br/>
-<label>CPF:</label> <input type="text" name = "cpf"/><br/>
+<label>Cor:</label> <input type="text" name = "cor"/><br/>
+<label>Preco:</label> <input type="number" name = "preco"/><br/>
+<label>Tamanho:</label> <input type="number" name = "tamanho"/><br/>
 <input type="submit" value= "confirmar" />
 </form>
 

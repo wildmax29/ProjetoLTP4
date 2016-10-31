@@ -8,33 +8,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.BO.ClienteBO;
-import br.com.entidade.Cliente;
+import br.com.BO.BoneBO;
+import br.com.entidade.Bone;
 
-public class ClienteServlet extends HttpServlet {
+public class BoneServlet extends HttpServlet {
 	private String acao;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		acao=req.getParameter("acao");
 		
-		Cliente cliente= new Cliente();
-		ClienteBO clientebo = new ClienteBO();
+		Bone bone= new Bone();
+		BoneBO bonebo = new BoneBO();
 		
 		if(acao.equals("cadastrar")){
 			
-			cliente.setNome(req.getParameter("nome"));
-			cliente.setIdade(Integer.parseInt(req.getParameter("idade")));
-			cliente.setCPF(req.getParameter("cpf"));
-			clientebo.cadastrar(cliente);
-			resp.sendRedirect("/LojaBone/cliente?acao=Listar");
+			bone.setCor(req.getParameter("cor"));
+			bone.setPreco(Integer.parseInt(req.getParameter("preco")));
+			bone.setTamanho(req.getParameter("tamanho"));
+			bonebo.cadastrar(bone);
+			resp.sendRedirect("/LojaBone/bone?acao=Listar");
+		
 			
 		}else if(acao.equals("Listar")){
-			List<Cliente> clientes;
-			clientes = clientebo.ListarTodos();
-			req.setAttribute("clientes", clientes);
-			req.getRequestDispatcher("JSP/Cliente/Listar.jsp").forward(req, resp);
-			
+			List<Bone> bones;
+			bones = bonebo.ListarTodos();
+			req.setAttribute("bones", bones);
+			req.getRequestDispatcher("JSP/Bone/ListarBone.jsp").forward(req, resp);
 			
 		}else{
 			System.out.println("Não encontrada nenhuma ação");

@@ -17,4 +17,12 @@
 	<servlet-name>Cliente</servlet-name>
 	<url-pattern>/cliente</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>Bone</servlet-name>
+	<servlet-class>br.com.Servlet.BoneServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Bone</servlet-name>
+	<url-pattern>/bone</url-pattern>
+</servlet-mapping>
 </web-app>
