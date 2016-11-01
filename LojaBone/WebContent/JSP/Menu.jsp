@@ -8,6 +8,7 @@
 </head>
 <body>
 <center>
+
 	<a href="../../LojaBone/JSP/Cliente/Cadastro.jsp"> CadastroCliente</a><br/>
 	<a href="/LojaBone/cliente?acao=Listar">Listar clientes</a><br/>
 	<a href="../../LojaBone/JSP/Bone/CadastroBone.jsp"> CadastroBone</a><br/>
