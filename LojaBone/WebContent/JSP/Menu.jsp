@@ -7,6 +7,14 @@
 <title>Menu</title>
 </head>
 <body>
+<%
+String usuario = (String)session.getAttribute("usuario");
+String senha = (String)session.getAttribute("senha");
+if(usuario == null && senha == null){
+	response.sendRedirect("../../LojaBone/JSP/Login.jsp");
+}
+%>
+
 <center>
 
 	<a href="../../LojaBone/JSP/Cliente/Cadastro.jsp"> CadastroCliente</a><br/>

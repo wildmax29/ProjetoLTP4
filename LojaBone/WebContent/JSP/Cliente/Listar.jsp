@@ -26,8 +26,8 @@
       <td><a><%=cliente.getNome() %></a>
       <td><a><%=cliente.getIdade() %></a>
       <td><a><%=cliente.getCPF() %></a>
-      <td><a href="/LojaBone/Cliente?acao=alterar&id=<%=cliente.getIdcliente() %>">Alterar</a></td>
-      <td><a href="/LojaBone/Cliente?acao=deletar&id=<%=cliente.getIdcliente() %>">Deletar</a></td>
+      <td><a href="/LojaBone/cliente?acao=consultar&id=<%=cliente.getIdcliente() %>">Alterar</a></td>
+      <td><a href="/LojaBone/cliente?acao=deletar&id=<%=cliente.getIdcliente() %>">Deletar</a></td>
       
       </tr>
       <%

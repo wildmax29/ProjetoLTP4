@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.BO.BoneBO;
 import br.com.entidade.Bone;
@@ -17,10 +18,10 @@ public class BoneServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		acao=req.getParameter("acao");
-		
+		HttpSession session = req.getSession();
 		Bone bone= new Bone();
 		BoneBO bonebo = new BoneBO();
-		
+	if((session.getAttribute("usuario")!= null && session.getAttribute("senha")!=null)){	
 		if(acao.equals("cadastrar")){
 			
 			bone.setCor(req.getParameter("cor"));
@@ -39,10 +40,14 @@ public class BoneServlet extends HttpServlet {
 		}else{
 			System.out.println("Não encontrada nenhuma ação");
 		}
+	}else{
+		resp.sendRedirect("../LojaBone/JSP/Login.jsp");
+	}
 	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req,resp);
 	}	
+	
 
 }

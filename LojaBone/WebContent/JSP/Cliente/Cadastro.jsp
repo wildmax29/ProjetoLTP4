@@ -7,6 +7,13 @@
 <title>CADASTRO CLIENTE</title>
 </head>
 <body>
+<%
+String usuario = (String)session.getAttribute("usuario");
+String senha = (String)session.getAttribute("senha");
+if(usuario == null && senha == null){
+	response.sendRedirect("../../LojaBone/JSP/Login.jsp");
+}
+%>
 <form action="/LojaBone/cliente" method = "post">
 <input type = "hidden" name = "acao" value = "cadastrar" />
 <label>Nome:</label> <input type="text" name = "nome"/><br/>

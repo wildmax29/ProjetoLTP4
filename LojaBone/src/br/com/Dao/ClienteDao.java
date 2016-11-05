@@ -59,5 +59,69 @@ public class ClienteDao {
 		return lista;
 	}
 	
+	public static Cliente ConsultarPorId(int Id){
+		Cliente cliente=null;
+		Connection c = ConexaoBanco.getConnection();
+		
+		try {
+			PreparedStatement ps = c.prepareStatement("SELECT * FROM cliente where idcliente = ?");
+			ps.setInt(1, Id);
+			ResultSet result = ps.executeQuery();
+			
+			
+			while(result.next()){
+				cliente= new Cliente();
+				cliente.setIdcliente(result.getInt("idcliente"));
+				cliente.setNome(result.getString("nome"));
+				cliente.setIdade(result.getInt("idade"));
+				cliente.setCPF(result.getString("cpf"));
+												
+			}
+		}
+			catch(SQLException e){
+			e.printStackTrace();
+			
+	}
+	return cliente;
+	
 
+	}
+
+	public void alterarcliente(Cliente cliente) {
+		Connection c= ConexaoBanco.getConnection();
+		
+		try {
+			PreparedStatement ps = c.prepareStatement("UPDATE cliente set nome = ?,idade = ?,cpf = ? WHERE idcliente = ?");
+			ps.setString(1,cliente.getNome());
+			ps.setInt(2, cliente.getIdade());
+			ps.setString(3,cliente.getCPF());
+			ps.setInt(4, cliente.getIdcliente());
+			ps.execute();
+			ps.close();
+			c.close();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void excluir(Cliente cliente) {
+		Connection c = ConexaoBanco.getConnection();
+		
+		try {
+			PreparedStatement ps = c.prepareStatement("DELETE FROM cliente WHERE idcliente = ?");
+			ps.setInt(1,cliente.getIdcliente());
+			ps.execute();
+			ps.close();
+			c.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 }

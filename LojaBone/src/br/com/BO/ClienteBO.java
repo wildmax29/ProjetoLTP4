@@ -16,6 +16,19 @@ public class ClienteBO {
 		
 		return clientedao.listartodos();
 	}
-	
+	public Cliente ConsultarPorId(int Id){
+		return clientedao.ConsultarPorId(Id);
+		
+	}
+
+	public void alterar(Cliente cliente) {
+		clientedao.alterarcliente(cliente);
+		
+	}
+
+	public void excluir(Cliente cliente) {
+		clientedao.excluir(cliente);
+		
+	}
 
 }
