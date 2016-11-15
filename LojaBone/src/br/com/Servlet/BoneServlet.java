@@ -28,7 +28,7 @@ public class BoneServlet extends HttpServlet {
 			bone.setPreco(Integer.parseInt(req.getParameter("preco")));
 			bone.setTamanho(req.getParameter("tamanho"));
 			bonebo.cadastrar(bone);
-			resp.sendRedirect("/LojaBone/bone?acao=Listar");
+			resp.sendRedirect("/LojaBone/bone?acao=ListarBone");
 		
 			
 		}else if(acao.equals("Listar")){
@@ -37,6 +37,19 @@ public class BoneServlet extends HttpServlet {
 			req.setAttribute("bones", bones);
 			req.getRequestDispatcher("JSP/Bone/ListarBone.jsp").forward(req, resp);
 			
+		}else if(acao.equals("alterar")){
+			bone.setCor(req.getParameter("cor"));
+			bone.setPreco(Integer.parseInt(req.getParameter("preco")));
+			bone.setTamanho(req.getParameter("tamanho"));
+			bone.setIdbone(Integer.parseInt(req.getParameter("Idbone")));
+			bonebo.alterar(bone);
+			resp.sendRedirect("/LojaBone/bone?acao=ListarBone");			
+			
+			
+		}else if(acao.equals("deletar")){
+			bone = bonebo.ConsultarPorIdBone(Integer.parseInt(req.getParameter("idbone")));
+			bonebo.excluir(bone);
+			resp.sendRedirect("/LojaBone/bone?acao=ListarBone");
 		}else{
 			System.out.println("Não encontrada nenhuma ação");
 		}

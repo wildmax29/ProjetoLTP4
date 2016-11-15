@@ -9,6 +9,7 @@ import java.util.List;
 
 import br.com.banco.ConexaoBanco;
 import br.com.entidade.Bone;
+import br.com.entidade.Cliente;
 
 public class BoneDao {
 
@@ -26,10 +27,10 @@ public class BoneDao {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -58,6 +59,67 @@ public class BoneDao {
 				
 		return lista;
 	}
-	
 
+	public static Bone ConsultarPorIdBone(int Idbone){
+		Bone bone=null;
+		Connection c = ConexaoBanco.getConnection();
+		
+		try {
+			PreparedStatement ps = c.prepareStatement("SELECT * FROM bone where idbone = ?");
+			ps.setInt(1, Idbone);
+			ResultSet result = ps.executeQuery();
+			
+			
+			while(result.next()){
+				bone= new Bone();
+				bone.setIdbone(result.getInt("idbone"));
+				bone.setCor(result.getString("cor"));
+				bone.setPreco(result.getInt("preco"));
+				bone.setTamanho(result.getString("tamanho"));
+												
+			}
+		}
+			catch(SQLException e){
+			e.printStackTrace();
+			
+	}
+	return bone;
+	
+}
+	public void alterarbone(Bone bone) {
+		Connection c= ConexaoBanco.getConnection();
+		
+		try {
+			PreparedStatement ps = c.prepareStatement("UPDATE bone set cor = ?,preco = ?,tamanho = ? WHERE idbone= ?");
+			ps.setString(1,bone.getCor());
+			ps.setInt(2, (int) bone.getPreco());
+			ps.setString(3,bone.getTamanho());
+			ps.setInt(4, bone.getIdbone());
+			ps.execute();
+			ps.close();
+			c.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void excluir(Bone bone) {
+		Connection c = ConexaoBanco.getConnection();
+		
+		try {
+			PreparedStatement ps = c.prepareStatement("DELETE FROM bone WHERE idbone = ?");
+			ps.setInt(1,bone.getIdbone());
+			ps.execute();
+			ps.close();
+			c.close();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+	}
 }

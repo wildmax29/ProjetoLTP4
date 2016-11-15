@@ -9,7 +9,7 @@
 <title>Lista de clientes cadastrados</title>
 </head>
 <body>
-
+<center>
 <table border="1">
    <tr>
 	<td><a>ID Cliente</a></td>
@@ -35,7 +35,9 @@
       %>
       
 </table>
+</br>
 <input type="button" onclick="location='/LojaBone/JSP/Cliente/Cadastro.jsp'" value = "Cadastro">
 
+</center>
 </body>
 </html>

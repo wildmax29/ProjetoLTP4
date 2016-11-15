@@ -26,10 +26,9 @@ public class ClienteDao {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -102,7 +101,6 @@ public class ClienteDao {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -118,7 +116,7 @@ public class ClienteDao {
 			ps.close();
 			c.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
