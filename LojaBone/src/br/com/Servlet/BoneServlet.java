@@ -41,7 +41,7 @@ public class BoneServlet extends HttpServlet {
 			bone.setCor(req.getParameter("cor"));
 			bone.setPreco(Integer.parseInt(req.getParameter("preco")));
 			bone.setTamanho(req.getParameter("tamanho"));
-			bone.setIdbone(Integer.parseInt(req.getParameter("Idbone")));
+			bone.setIdbone(Integer.parseInt(req.getParameter("idbone")));
 			bonebo.alterar(bone);
 			resp.sendRedirect("/LojaBone/bone?acao=ListarBone");			
 			
