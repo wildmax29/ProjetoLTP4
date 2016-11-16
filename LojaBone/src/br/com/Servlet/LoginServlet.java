@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 			String senha = req.getParameter("senha");
 			if(usuario.equals("max")&&(senha.equals("1234"))){
 				req.getSession().setAttribute("usuario",usuario);
-				req.getSession().setAttribute("senha", senha);
+				
 				req.getRequestDispatcher("/JSP/Menu.jsp").forward(req, resp);
 				
 			}else{

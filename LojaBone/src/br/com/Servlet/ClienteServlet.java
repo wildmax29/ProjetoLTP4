@@ -23,7 +23,7 @@ public class ClienteServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		Cliente cliente= new Cliente();
 		ClienteBO clientebo = new ClienteBO();
-		if((session.getAttribute("usuario")!= null && session.getAttribute("senha")!=null)){	
+			
 		
 		if(acao.equals("cadastrar")){
 			
@@ -63,10 +63,8 @@ public class ClienteServlet extends HttpServlet {
 		else{
 			System.out.println("Não encontrada nenhuma ação");
 		}
-		}else{
-			resp.sendRedirect("../LojaBone/JSP/Login.jsp");
-		}
-	}
+				}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req,resp);

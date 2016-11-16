@@ -74,7 +74,7 @@ public class BoneDao {
 				bone= new Bone();
 				bone.setIdbone(result.getInt("idbone"));
 				bone.setCor(result.getString("cor"));
-				bone.setPreco(result.getInt("preco"));
+				bone.setPreco(result.getFloat("preco"));
 				bone.setTamanho(result.getString("tamanho"));
 												
 			}
@@ -92,7 +92,7 @@ public class BoneDao {
 		try {
 			PreparedStatement ps = c.prepareStatement("UPDATE bone set cor = ?,preco = ?,tamanho = ? WHERE idbone= ?");
 			ps.setString(1,bone.getCor());
-			ps.setInt(2, (int) bone.getPreco());
+			ps.setFloat(2, bone.getPreco());
 			ps.setString(3,bone.getTamanho());
 			ps.setInt(4, bone.getIdbone());
 			ps.execute();

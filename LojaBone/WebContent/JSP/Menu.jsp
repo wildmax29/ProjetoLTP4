@@ -7,13 +7,6 @@
 <title>Menu</title>
 </head>
 <body>
-<%
-String usuario = (String)session.getAttribute("usuario");
-String senha = (String)session.getAttribute("senha");
-if(usuario == null && senha == null){
-	response.sendRedirect("../../LojaBone/JSP/Login.jsp");
-}
-%>
 
 <center>
 
@@ -22,6 +15,9 @@ if(usuario == null && senha == null){
 	<a href="../../LojaBone/JSP/Bone/CadastroBone.jsp"> CadastroBone</a><br/>
 	<a href="/LojaBone/bone?acao=Listar">Listar bones</a><br/>
 	
+	<a href="/LojaBone/venda?acao=vender"> Cadastrar Nova Venda</a><br/>
+	<a href="/LojaBone/venda?acao=listar"> Listar Vendas</a><br/>
 </center>
+
 </body>
 </html>

@@ -26,8 +26,8 @@
       <td><a><%=bone.getCor() %></a>
       <td><a><%=bone.getPreco() %></a>
       <td><a><%=bone.getTamanho() %></a>
-      <td><a href="/LojaBone/Bone?acao=alterar&idbone=<%=bone.getIdbone() %>">Alterar</a></td>
-      <td><a href="/LojaBone/Bone?acao=deletar&idbone=<%=bone.getIdbone() %>">Deletar</a></td>
+      <td><a href="/LojaBone/bone?acao=consultar&idbone=<%=bone.getIdbone() %>">Alterar</a></td>
+      <td><a href="/LojaBone/bone?acao=deletar&idbone=<%=bone.getIdbone() %>">Deletar</a></td>
       
       </tr>
       <%

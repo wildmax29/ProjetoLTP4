@@ -21,7 +21,7 @@ public class BoneServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		Bone bone= new Bone();
 		BoneBO bonebo = new BoneBO();
-	if((session.getAttribute("usuario")!= null && session.getAttribute("senha")!=null)){	
+	
 		if(acao.equals("cadastrar")){
 			
 			bone.setCor(req.getParameter("cor"));
@@ -35,28 +35,32 @@ public class BoneServlet extends HttpServlet {
 			List<Bone> bones;
 			bones = bonebo.ListarTodos();
 			req.setAttribute("bones", bones);
-			req.getRequestDispatcher("JSP/Bone/ListarBone.jsp").forward(req, resp);
+			req.getRequestDispatcher("/JSP/Bone/ListarBone.jsp").forward(req, resp);
 			
-		}else if(acao.equals("alterar")){
+		}else if(acao.equals("consultar")){
+			bone=bonebo.ConsultarPorIdBone(Integer.parseInt(req.getParameter("idbone")));
+			req.setAttribute("bone", bone);
+			req.getRequestDispatcher("/JSP/Bone/AlterarBone.jsp").forward(req, resp);
+			
+		}
+		else if(acao.equals("alterar")){
 			bone.setCor(req.getParameter("cor"));
-			bone.setPreco(Integer.parseInt(req.getParameter("preco")));
+			bone.setPreco(Float.parseFloat(req.getParameter("preco")));
 			bone.setTamanho(req.getParameter("tamanho"));
 			bone.setIdbone(Integer.parseInt(req.getParameter("idbone")));
 			bonebo.alterar(bone);
-			resp.sendRedirect("/LojaBone/bone?acao=ListarBone");			
+			resp.sendRedirect("/LojaBone/bone?acao=Listar");			
 			
 			
 		}else if(acao.equals("deletar")){
 			bone = bonebo.ConsultarPorIdBone(Integer.parseInt(req.getParameter("idbone")));
 			bonebo.excluir(bone);
-			resp.sendRedirect("/LojaBone/bone?acao=ListarBone");
+			resp.sendRedirect("/LojaBone/bone?acao=Listar");
 		}else{
 			System.out.println("Não encontrada nenhuma ação");
 		}
-	}else{
-		resp.sendRedirect("../LojaBone/JSP/Login.jsp");
 	}
-	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req,resp);
