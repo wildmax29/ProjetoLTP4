@@ -86,6 +86,50 @@ public class VendaDao {
 			e.printStackTrace();
 		}
 
+	}public static boolean verificaCliente(int id){
+		try {
+			Connection con = ConexaoBanco.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT COUNT(*)  FROM venda WHERE idcliente  = ? ");
+			ps.setInt(1, id);
+			ResultSet result = ps.executeQuery();
+			result.last();
+			if (result.getInt(1) < 1) {
+				return true;
+			} else {
+				return false;
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return false;
+		
 	}
+	public static boolean verificaVenda(int id){
+		try {
+			Connection con = ConexaoBanco.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT COUNT(*)  FROM venda WHERE idcliente  = ? ");
+			ps.setInt(1, id);
+			ResultSet result = ps.executeQuery();
+			result.last();
+			if (result.getInt(1) < 1) {
+				return true;
+			} else {
+				return false;
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
 }
 

@@ -7,14 +7,18 @@
 <title>CADASTRO CLIENTE</title>
 </head>
 <body>
-
+<center>
+<h2>CADASTRO DE CLIENTE</h2><br/>
 <form action="/LojaBone/cliente" method = "post">
 <input type = "hidden" name = "acao" value = "cadastrar" />
-<label>Nome:</label> <input type="text" name = "nome"/><br/>
-<label>Idade:</label> <input type="number" name = "idade"/><br/>
-<label>CPF:</label> <input type="text" name = "cpf"/><br/>
+<label>Nome:&nbsp;</label> <input type="text" name = "nome"/><br><p>
+<label>Idade:&nbsp;</label> <input type="number" name = "idade"/><br><p>
+<label>CPF:&nbsp;&nbsp;</label> <input type="text" name = "cpf"/><br><p>
 <input type="submit" value= "confirmar" />
 </form>
+<p>
+<input type="button" onclick="location='/LojaBone/JSP/Menu.jsp'"value="Menu Principal"><br></div align="center">
+</center>
 
 </body>
 </html>

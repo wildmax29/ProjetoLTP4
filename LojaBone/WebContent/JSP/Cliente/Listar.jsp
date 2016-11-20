@@ -10,6 +10,7 @@
 </head>
 <body>
 <center>
+<h2>LISTA DE CLIENTES</h2><p>
 <table border="1">
    <tr>
 	<td><a>ID Cliente</a></td>
@@ -26,8 +27,8 @@
       <td><a><%=cliente.getNome() %></a>
       <td><a><%=cliente.getIdade() %></a>
       <td><a><%=cliente.getCPF() %></a>
-      <td><a href="/LojaBone/cliente?acao=consultar&id=<%=cliente.getIdcliente() %>">Alterar</a></td>
-      <td><a href="/LojaBone/cliente?acao=deletar&id=<%=cliente.getIdcliente() %>">Deletar</a></td>
+      <td><a href="/LojaBone/cliente?acao=consultar&id=<%=cliente.getIdcliente() %>"><font color="Blue"><b>Alterar</a></td>
+      <td><a href="/LojaBone/cliente?acao=deletar&id=<%=cliente.getIdcliente() %>"><font color="Blue"><b>Deletar</a></td>
       
       </tr>
       <%
@@ -36,7 +37,8 @@
       
 </table>
 </br>
-<input type="button" onclick="location='/LojaBone/JSP/Cliente/Cadastro.jsp'" value = "Cadastro">
+<input type="button" onclick="location='/LojaBone/JSP/Cliente/Cadastro.jsp'" value = "Cadastro"><p>
+<input type="button" onclick="location='../../LojaBone/JSP/Menu.jsp'" value="Menu Principal"><br></div align="center">
 
 </center>
 </body>

@@ -9,15 +9,19 @@
 <body>
 
 <center>
-
+<h2>MENU</h2>
+	<h1>Cliente</h1><p>
 	<a href="../../LojaBone/JSP/Cliente/Cadastro.jsp"> CadastroCliente</a><br/>
 	<a href="/LojaBone/cliente?acao=Listar">Listar clientes</a><br/>
+	<h1>Bone</h1><p>
 	<a href="../../LojaBone/JSP/Bone/CadastroBone.jsp"> CadastroBone</a><br/>
 	<a href="/LojaBone/bone?acao=Listar">Listar bones</a><br/>
-	
+	<h1>Vendas</h1><p>
 	<a href="/LojaBone/venda?acao=vender"> Cadastrar Nova Venda</a><br/>
 	<a href="/LojaBone/venda?acao=listar"> Listar Vendas</a><br/>
-</center>
+	<input type="button" onclick="location='/LojaBone/Login'" value = "Logout"><p>
+
+	</center>
 
 </body>
 </html>

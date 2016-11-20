@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.BO.BoneBO;
+import br.com.Exception.CampoBoneVazioException;
+import br.com.Exception.ValorInvalidoException;
 import br.com.entidade.Bone;
 
 public class BoneServlet extends HttpServlet {
@@ -21,14 +23,28 @@ public class BoneServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		Bone bone= new Bone();
 		BoneBO bonebo = new BoneBO();
+		String msg = null;
 	
 		if(acao.equals("cadastrar")){
 			
-			bone.setCor(req.getParameter("cor"));
-			bone.setPreco(Integer.parseInt(req.getParameter("preco")));
-			bone.setTamanho(req.getParameter("tamanho"));
-			bonebo.cadastrar(bone);
-			resp.sendRedirect("/LojaBone/bone?acao=ListarBone");
+			
+			try {
+				bone.setCor(req.getParameter("cor"));
+				bone.setPreco(Integer.parseInt(bonebo.consultaValor(req.getParameter("preco"))));
+				bone.setTamanho(req.getParameter("tamanho"));
+				bonebo.cadastrar(bone);
+				resp.sendRedirect("/LojaBone/bone?acao=Listar");
+			} catch ( ValorInvalidoException e) {
+				msg = "Digite número no campo preço!!";
+				req.setAttribute("msg", msg);
+				req.getRequestDispatcher("JSP/Problemas/Problema.jsp").forward(req, resp);
+						
+			}catch (CampoBoneVazioException e){
+				msg = "Existe campos não preenchidos, por favor preencha";
+				req.setAttribute("msg", msg);
+				req.getRequestDispatcher("JSP/Problemas/Problema.jsp").forward(req, resp);
+			}
+			
 		
 			
 		}else if(acao.equals("Listar")){

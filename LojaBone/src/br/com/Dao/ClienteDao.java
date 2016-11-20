@@ -1,12 +1,11 @@
 package br.com.Dao;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import br.com.banco.ConexaoBanco;
 import br.com.entidade.Cliente;
 
@@ -17,6 +16,7 @@ public class ClienteDao {
 		Connection c= ConexaoBanco.getConnection();
 		
 		try {
+			
 			PreparedStatement ps = c.prepareStatement("INSERT INTO cliente (nome,idade,cpf) values (?,?,?)");
 			ps.setString(1,cliente.getNome());
 			ps.setInt(2, cliente.getIdade());
@@ -30,6 +30,27 @@ public class ClienteDao {
 			e.printStackTrace();
 		}
 		
+	}
+	public static boolean verificarCPFIgual(String string) {
+		try {
+			Connection con = ConexaoBanco.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT COUNT(*)  FROM cliente WHERE cpf  = ? ");
+			ps.setString(1, string);
+			ResultSet result = ps.executeQuery();
+			result.last();
+			if (result.getInt(1) > 0) {
+				return true;
+			} else {
+				return false;
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return false;
 	}
 
 	public List<Cliente> listartodos() {

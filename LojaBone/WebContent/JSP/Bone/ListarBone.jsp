@@ -9,7 +9,8 @@
 <title>Lista de bones cadastrados</title>
 </head>
 <body>
-
+<center>
+<h2>LISTA DE BONÉS</h2>
 <table border="1">
    <tr>
 	<td><a>ID Bone</a></td>
@@ -34,8 +35,10 @@
     }
       %>
       
-</table>
+</table><p/>
 <input type="button" onclick="location='/LojaBone/JSP/Bone/CadastroBone.jsp'" value = "Cadastro">
-
+<p>
+<input type="button" onclick="location='../../LojaBone/JSP/Menu.jsp'"value="Menu Principal"><br></div align="center">
+</center>
 </body>
 </html>

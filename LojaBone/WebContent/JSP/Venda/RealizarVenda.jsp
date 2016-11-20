@@ -11,10 +11,10 @@
 </head>
 <body>
 <div align="center">
-<h1>Venda</h1>
+<h1> REALIZAÇÃO DE VENDAS </h1>
 	<form action="/LojaBone/venda?acao=realizaVenda" method="post">
-
-	Cliente: <select name="idcliente" required="required">
+<center>
+	Cliente:&nbsp;&nbsp; <select name="idcliente" required="required">
 			
 				<option value="">Procurar</option>
 				<%
@@ -28,7 +28,7 @@
 				%>
 			</select><br><br>
 			
-	Bone: <select name="id" required="required">
+	Bone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="id" required="required">
 			
 				<option value="">Selecione</option>
 				<%
@@ -42,18 +42,17 @@
 				%>
 			</select><br><br>
 
-	Descrição: <textarea cols=40 rows="5" name="descricao" maxlength="200" wrap="hard" ></textarea>
+	Descrição: <textarea cols=15 rows="5" name="descricao" maxlength="200" wrap="hard" ></textarea>
 		
 		<input type="hidden" name="acao" value="realizaVenda">
 		<BR><BR><BR>
-		<input type="Submit" name="enviar" value="Vender" class="myButton2">
+		<input type="Submit" name="enviar" value="Vender" class="myButton2"><p/>
 		<input type="reset" value="Limpar" class="myButton2">
 	
 	</form>
-	
-		<br>
 		
-		   <p><input type="button" onclick="location='../../LojaBone/Menu.jsp'" value="Menu Principal"><br>
+		   <p><input type="button" onclick="location='/LojaBone/JSP/Menu.jsp'" value="Menu Principal"><br>
 </div>
+</center>
 </body>
 </html>

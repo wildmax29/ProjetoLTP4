@@ -7,12 +7,14 @@
 <title>ACESSO SISTEMA DE COMPRAS DE BONE</title>
 </head>
 <body>
+<center>
+<h2>ACESSO AO SISTEMA<br></h2>
 <form action="../../LojaBone/Login" method="post">
 <input type="hidden" name="acao" value="Logar"/>
-<p><td>Usuário<input type="text" name="usuario"></td>
-<p><td>Senha<input type="password" name="senha"></td>
+<p><td>Usuário&nbsp;<input type="text" name="usuario"></td>
+<p><td>Senha &nbsp;&nbsp;&nbsp;<input type="password" name="senha"></td>
 <p><input type = "submit" value ="login"/>
-
+</center>
 </form>
 
 </body>

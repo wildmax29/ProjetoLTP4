@@ -13,7 +13,10 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	doPost(req,resp);
+	 if(req.getSession(false) != null){
+		 req.getSession().invalidate();
+	 }
+	 resp.sendRedirect("../LojaBone/JSP/Login.jsp");
 	
 	}
 	@Override
@@ -36,6 +39,7 @@ public class LoginServlet extends HttpServlet {
 			resp.sendRedirect("../LojaBone/JSP/Login.jsp");
 		}
 	}
+	
 	
 
 }

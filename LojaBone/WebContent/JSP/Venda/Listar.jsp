@@ -13,20 +13,20 @@
 	<div id='imprimir' align="center">
 		<br>
 
-		<h1>Listagem de Vendas</h1>
+		<h1>VENDAS REALIZADAS</h1>
 
 
 		<table border="1">
 			<tr>
 				<div align="center">
-					<td>Id Venda</td> <a><td>Nome cliente</td></a> <a><td>CPF
+					<td><b>Numero da Venda</td> <a><td><b>Nome cliente</td></a> <a><td><b>CPF
 							Cliente</td></a> <a>
 					</a> <a>
-						<td>Bone</td>
+						<td><b>Cor Bone</td>
 					</a>
-					<td>Valor do Bone</td>
-					<td>Descrição</td>
-					<td><font color="RED">Actions</td>
+					<td><b>Valor do Bone<b/></td>
+					<td><b>Descrição<b/></td>
+					<td><font color=""><b>Ação<b/></td>
 			</tr>
 
 			<%
@@ -41,8 +41,7 @@
 				<td align="center"><%=venda.getBone().getCor()%></td>
 				<td align="center"><%=venda.getBone().getPreco()%></td>
 				<td align="center"><%=venda.getDescricao()%></td>
-				<td><a
-					href="/LojaBone/venda?acao=excluir&id=<%=venda.getIdvenda()%>"><font color="RED">Excluir</a></td>
+				<td><a href="/LojaBone/venda?acao=excluir&id=<%=venda.getIdvenda()%>"><font color="Blue"><b>Deletar Venda</a></td>
 				<>
 			</tr>
 			<%
@@ -52,9 +51,7 @@
 
 
 		<p>
-			<input type="button"
-				onclick="location='../../LojaBone/JSP/Menu.jsp'"
-				value="Menu Principal"><br>
+			<input type="button"onclick="location='/LojaBone/JSP/Menu.jsp'"	value="Menu Principal"><br>
 	</div align="center">
 
 </div>
